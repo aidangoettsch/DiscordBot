@@ -1,0 +1,18 @@
+{
+  "name": "DiscordBot",
+  "version": "0.1.10",
+  "description": "A simple bot for Discord.",
+  "main": "src/api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yayes2",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "bunyan": "^1.8.1",
+    "node-opus": "^0.1.12",
+    "ws": "~1.1.0",
+    "youtube-dl": "^1.11.1",
+    "tweetnacl": "latest"
+  }
+}

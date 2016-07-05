@@ -1,0 +1,403 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'rebuild' ]
+2 info using npm@3.8.6
+3 info using node@v5.11.0
+4 info readInstalled object
+5 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot', 'DiscordBot@0.1.10' ]
+6 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\bunyan',
+6 verbose rebuild   'bunyan@1.8.1' ]
+7 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\node-opus',
+7 verbose rebuild   'node-opus@0.1.12' ]
+8 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\bindings',
+8 verbose rebuild   'bindings@1.2.1' ]
+9 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\nan',
+9 verbose rebuild   'nan@2.0.9' ]
+10 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\node-opus\\node_modules\\ogg-packet',
+10 verbose rebuild   'ogg-packet@1.0.0' ]
+11 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ref-struct',
+11 verbose rebuild   'ref-struct@1.0.2' ]
+12 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\debug',
+12 verbose rebuild   'debug@2.2.0' ]
+13 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ms',
+13 verbose rebuild   'ms@0.7.1' ]
+14 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ref',
+14 verbose rebuild   'ref@1.3.2' ]
+15 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ws',
+15 verbose rebuild   'ws@1.1.0' ]
+16 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ws\\node_modules\\options',
+16 verbose rebuild   'options@0.0.6' ]
+17 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ws\\node_modules\\ultron',
+17 verbose rebuild   'ultron@1.0.2' ]
+18 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl',
+18 verbose rebuild   'youtube-dl@1.11.1' ]
+19 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\mkdirp',
+19 verbose rebuild   'mkdirp@0.5.1' ]
+20 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\mkdirp\\node_modules\\minimist',
+20 verbose rebuild   'minimist@0.0.8' ]
+21 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request',
+21 verbose rebuild   'request@2.72.0' ]
+22 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\aws-sign2',
+22 verbose rebuild   'aws-sign2@0.6.0' ]
+23 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\aws4',
+23 verbose rebuild   'aws4@1.3.2' ]
+24 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\aws4\\node_modules\\lru-cache',
+24 verbose rebuild   'lru-cache@4.0.1' ]
+25 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\aws4\\node_modules\\lru-cache\\node_modules\\pseudomap',
+25 verbose rebuild   'pseudomap@1.0.2' ]
+26 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\aws4\\node_modules\\lru-cache\\node_modules\\yallist',
+26 verbose rebuild   'yallist@2.0.0' ]
+27 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl',
+27 verbose rebuild   'bl@1.1.2' ]
+28 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream',
+28 verbose rebuild   'readable-stream@2.0.6' ]
+29 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream\\node_modules\\core-util-is',
+29 verbose rebuild   'core-util-is@1.0.2' ]
+30 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream\\node_modules\\inherits',
+30 verbose rebuild   'inherits@2.0.1' ]
+31 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream\\node_modules\\isarray',
+31 verbose rebuild   'isarray@1.0.0' ]
+32 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream\\node_modules\\process-nextick-args',
+32 verbose rebuild   'process-nextick-args@1.0.6' ]
+33 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream\\node_modules\\string_decoder',
+33 verbose rebuild   'string_decoder@0.10.31' ]
+34 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream\\node_modules\\util-deprecate',
+34 verbose rebuild   'util-deprecate@1.0.2' ]
+35 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\caseless',
+35 verbose rebuild   'caseless@0.11.0' ]
+36 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\combined-stream',
+36 verbose rebuild   'combined-stream@1.0.5' ]
+37 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\combined-stream\\node_modules\\delayed-stream',
+37 verbose rebuild   'delayed-stream@1.0.0' ]
+38 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\extend',
+38 verbose rebuild   'extend@3.0.0' ]
+39 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\forever-agent',
+39 verbose rebuild   'forever-agent@0.6.1' ]
+40 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\form-data',
+40 verbose rebuild   'form-data@1.0.0-rc4' ]
+41 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\form-data\\node_modules\\async',
+41 verbose rebuild   'async@1.5.2' ]
+42 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\mime-types',
+42 verbose rebuild   'mime-types@2.1.10' ]
+43 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\mime-types\\node_modules\\mime-db',
+43 verbose rebuild   'mime-db@1.22.0' ]
+44 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator',
+44 verbose rebuild   'har-validator@2.0.6' ]
+45 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk',
+45 verbose rebuild   'chalk@1.1.3' ]
+46 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\ansi-styles',
+46 verbose rebuild   'ansi-styles@2.2.1' ]
+47 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\escape-string-regexp',
+47 verbose rebuild   'escape-string-regexp@1.0.5' ]
+48 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\has-ansi',
+48 verbose rebuild   'has-ansi@2.0.0' ]
+49 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\has-ansi\\node_modules\\ansi-regex',
+49 verbose rebuild   'ansi-regex@2.0.0' ]
+50 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\strip-ansi',
+50 verbose rebuild   'strip-ansi@3.0.1' ]
+51 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\strip-ansi\\node_modules\\ansi-regex',
+51 verbose rebuild   'ansi-regex@2.0.0' ]
+52 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\supports-color',
+52 verbose rebuild   'supports-color@2.0.0' ]
+53 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\commander',
+53 verbose rebuild   'commander@2.9.0' ]
+54 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\commander\\node_modules\\graceful-readlink',
+54 verbose rebuild   'graceful-readlink@1.0.1' ]
+55 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\is-my-json-valid',
+55 verbose rebuild   'is-my-json-valid@2.13.1' ]
+56 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\is-my-json-valid\\node_modules\\generate-function',
+56 verbose rebuild   'generate-function@2.0.0' ]
+57 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\is-my-json-valid\\node_modules\\generate-object-property',
+57 verbose rebuild   'generate-object-property@1.2.0' ]
+58 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\is-my-json-valid\\node_modules\\generate-object-property\\node_modules\\is-property',
+58 verbose rebuild   'is-property@1.0.2' ]
+59 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\is-my-json-valid\\node_modules\\jsonpointer',
+59 verbose rebuild   'jsonpointer@2.0.0' ]
+60 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\is-my-json-valid\\node_modules\\xtend',
+60 verbose rebuild   'xtend@4.0.1' ]
+61 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\pinkie-promise',
+61 verbose rebuild   'pinkie-promise@2.0.1' ]
+62 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\pinkie-promise\\node_modules\\pinkie',
+62 verbose rebuild   'pinkie@2.0.4' ]
+63 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\hawk',
+63 verbose rebuild   'hawk@3.1.3' ]
+64 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\hawk\\node_modules\\hoek',
+64 verbose rebuild   'hoek@2.16.3' ]
+65 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\hawk\\node_modules\\boom',
+65 verbose rebuild   'boom@2.10.1' ]
+66 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\hawk\\node_modules\\cryptiles',
+66 verbose rebuild   'cryptiles@2.0.5' ]
+67 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\hawk\\node_modules\\sntp',
+67 verbose rebuild   'sntp@1.0.9' ]
+68 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature',
+68 verbose rebuild   'http-signature@1.1.1' ]
+69 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\assert-plus',
+69 verbose rebuild   'assert-plus@0.2.0' ]
+70 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\jsprim',
+70 verbose rebuild   'jsprim@1.2.2' ]
+71 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\jsprim\\node_modules\\extsprintf',
+71 verbose rebuild   'extsprintf@1.0.2' ]
+72 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\jsprim\\node_modules\\json-schema',
+72 verbose rebuild   'json-schema@0.2.2' ]
+73 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\jsprim\\node_modules\\verror',
+73 verbose rebuild   'verror@1.3.6' ]
+74 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk',
+74 verbose rebuild   'sshpk@1.8.1' ]
+75 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\asn1',
+75 verbose rebuild   'asn1@0.2.3' ]
+76 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\assert-plus',
+76 verbose rebuild   'assert-plus@1.0.0' ]
+77 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\dashdash',
+77 verbose rebuild   'dashdash@1.13.1' ]
+78 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\getpass',
+78 verbose rebuild   'getpass@0.1.5' ]
+79 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\jsbn',
+79 verbose rebuild   'jsbn@0.1.0' ]
+80 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\tweetnacl',
+80 verbose rebuild   'tweetnacl@0.13.3' ]
+81 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\jodid25519',
+81 verbose rebuild   'jodid25519@1.0.2' ]
+82 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\ecc-jsbn',
+82 verbose rebuild   'ecc-jsbn@0.0.1' ]
+83 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\ecc-jsbn\\node_modules\\jsbn',
+83 verbose rebuild   'jsbn@0.0.0' ]
+84 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\is-typedarray',
+84 verbose rebuild   'is-typedarray@1.0.0' ]
+85 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\isstream',
+85 verbose rebuild   'isstream@0.1.2' ]
+86 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\json-stringify-safe',
+86 verbose rebuild   'json-stringify-safe@5.0.1' ]
+87 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\node-uuid',
+87 verbose rebuild   'node-uuid@1.4.7' ]
+88 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\oauth-sign',
+88 verbose rebuild   'oauth-sign@0.8.1' ]
+89 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\qs',
+89 verbose rebuild   'qs@6.1.0' ]
+90 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\stringstream',
+90 verbose rebuild   'stringstream@0.0.5' ]
+91 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\tough-cookie',
+91 verbose rebuild   'tough-cookie@2.2.2' ]
+92 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\tunnel-agent',
+92 verbose rebuild   'tunnel-agent@0.4.2' ]
+93 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\streamify',
+93 verbose rebuild   'streamify@0.2.5' ]
+94 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\streamify\\node_modules\\hashish',
+94 verbose rebuild   'hashish@0.0.4' ]
+95 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\streamify\\node_modules\\hashish\\node_modules\\traverse',
+95 verbose rebuild   'traverse@0.6.6' ]
+96 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\tweetnacl',
+96 verbose rebuild   'tweetnacl@0.14.3' ]
+97 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\balanced-match',
+97 verbose rebuild   'balanced-match@0.4.1' ]
+98 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\brace-expansion',
+98 verbose rebuild   'brace-expansion@1.1.4' ]
+99 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\concat-map',
+99 verbose rebuild   'concat-map@0.0.1' ]
+100 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\dtrace-provider',
+100 verbose rebuild   'dtrace-provider@0.6.0' ]
+101 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\glob',
+101 verbose rebuild   'glob@6.0.4' ]
+102 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\inflight',
+102 verbose rebuild   'inflight@1.0.5' ]
+103 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\once',
+103 verbose rebuild   'once@1.3.3' ]
+104 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\wrappy',
+104 verbose rebuild   'wrappy@1.0.2' ]
+105 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\inherits',
+105 verbose rebuild   'inherits@2.0.1' ]
+106 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\minimatch',
+106 verbose rebuild   'minimatch@3.0.0' ]
+107 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\path-is-absolute',
+107 verbose rebuild   'path-is-absolute@1.0.0' ]
+108 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\minimist',
+108 verbose rebuild   'minimist@0.0.8' ]
+109 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\mkdirp',
+109 verbose rebuild   'mkdirp@0.5.1' ]
+110 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\moment',
+110 verbose rebuild   'moment@2.13.0' ]
+111 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\mv',
+111 verbose rebuild   'mv@2.1.1' ]
+112 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ncp',
+112 verbose rebuild   'ncp@2.0.0' ]
+113 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\rimraf',
+113 verbose rebuild   'rimraf@2.4.5' ]
+114 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ogg-packet',
+114 verbose rebuild   'ogg-packet@1.0.0' ]
+115 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\safe-json-stringify',
+115 verbose rebuild   'safe-json-stringify@1.0.3' ]
+116 verbose rebuild path, id [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\zlib',
+116 verbose rebuild   'zlib@1.0.5' ]
+117 silly rebuild set [ 'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\bunyan',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\node-opus',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\bindings',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\nan',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\node-opus\\node_modules\\ogg-packet',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ref-struct',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\debug',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ms',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ref',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ws',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ws\\node_modules\\options',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ws\\node_modules\\ultron',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\mkdirp',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\mkdirp\\node_modules\\minimist',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\aws-sign2',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\aws4',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\aws4\\node_modules\\lru-cache',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\aws4\\node_modules\\lru-cache\\node_modules\\pseudomap',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\aws4\\node_modules\\lru-cache\\node_modules\\yallist',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream\\node_modules\\core-util-is',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream\\node_modules\\inherits',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream\\node_modules\\isarray',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream\\node_modules\\process-nextick-args',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream\\node_modules\\string_decoder',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\bl\\node_modules\\readable-stream\\node_modules\\util-deprecate',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\caseless',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\combined-stream',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\combined-stream\\node_modules\\delayed-stream',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\extend',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\forever-agent',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\form-data',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\form-data\\node_modules\\async',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\mime-types',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\mime-types\\node_modules\\mime-db',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\ansi-styles',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\escape-string-regexp',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\has-ansi',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\has-ansi\\node_modules\\ansi-regex',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\strip-ansi',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\strip-ansi\\node_modules\\ansi-regex',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\chalk\\node_modules\\supports-color',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\commander',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\commander\\node_modules\\graceful-readlink',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\is-my-json-valid',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\is-my-json-valid\\node_modules\\generate-function',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\is-my-json-valid\\node_modules\\generate-object-property',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\is-my-json-valid\\node_modules\\generate-object-property\\node_modules\\is-property',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\is-my-json-valid\\node_modules\\jsonpointer',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\is-my-json-valid\\node_modules\\xtend',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\pinkie-promise',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\har-validator\\node_modules\\pinkie-promise\\node_modules\\pinkie',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\hawk',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\hawk\\node_modules\\hoek',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\hawk\\node_modules\\boom',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\hawk\\node_modules\\cryptiles',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\hawk\\node_modules\\sntp',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\assert-plus',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\jsprim',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\jsprim\\node_modules\\extsprintf',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\jsprim\\node_modules\\json-schema',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\jsprim\\node_modules\\verror',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\asn1',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\assert-plus',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\dashdash',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\getpass',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\jsbn',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\tweetnacl',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\jodid25519',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\ecc-jsbn',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\http-signature\\node_modules\\sshpk\\node_modules\\ecc-jsbn\\node_modules\\jsbn',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\is-typedarray',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\isstream',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\json-stringify-safe',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\node-uuid',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\oauth-sign',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\qs',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\stringstream',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\tough-cookie',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\request\\node_modules\\tunnel-agent',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\streamify',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\streamify\\node_modules\\hashish',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\youtube-dl\\node_modules\\streamify\\node_modules\\hashish\\node_modules\\traverse',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\tweetnacl',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\balanced-match',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\brace-expansion',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\concat-map',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\dtrace-provider',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\glob',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\inflight',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\once',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\wrappy',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\inherits',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\minimatch',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\path-is-absolute',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\minimist',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\mkdirp',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\moment',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\mv',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ncp',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\rimraf',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\ogg-packet',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\safe-json-stringify',
+117 silly rebuild set   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\zlib' ]
+118 info build E:\OneDrive\Code\Node\DiscordBot\node_modules\bunyan
+119 info lifecycle bunyan@1.8.1~preinstall: bunyan@1.8.1
+120 silly lifecycle bunyan@1.8.1~preinstall: no script for preinstall, continuing
+121 info linkStuff bunyan@1.8.1
+122 silly linkStuff bunyan@1.8.1 has E:\OneDrive\Code\Node\DiscordBot\node_modules as its parent node_modules
+123 verbose linkBins bunyan@1.8.1
+124 verbose link bins [ { bunyan: './bin/bunyan' },
+124 verbose link bins   'E:\\OneDrive\\Code\\Node\\DiscordBot\\node_modules\\.bin',
+124 verbose link bins   false ]
+125 verbose linkMans bunyan@1.8.1
+126 verbose rebuildBundles bunyan@1.8.1
+127 info lifecycle bunyan@1.8.1~install: bunyan@1.8.1
+128 silly lifecycle bunyan@1.8.1~install: no script for install, continuing
+129 info lifecycle bunyan@1.8.1~postinstall: bunyan@1.8.1
+130 silly lifecycle bunyan@1.8.1~postinstall: no script for postinstall, continuing
+131 info build E:\OneDrive\Code\Node\DiscordBot\node_modules\node-opus
+132 info lifecycle node-opus@0.1.12~preinstall: node-opus@0.1.12
+133 silly lifecycle node-opus@0.1.12~preinstall: no script for preinstall, continuing
+134 info linkStuff node-opus@0.1.12
+135 silly linkStuff node-opus@0.1.12 has E:\OneDrive\Code\Node\DiscordBot\node_modules as its parent node_modules
+136 verbose linkBins node-opus@0.1.12
+137 verbose linkMans node-opus@0.1.12
+138 verbose rebuildBundles node-opus@0.1.12
+139 verbose rebuildBundles [ 'ogg-packet' ]
+140 info lifecycle node-opus@0.1.12~install: node-opus@0.1.12
+141 verbose lifecycle node-opus@0.1.12~install: unsafe-perm in lifecycle true
+142 verbose lifecycle node-opus@0.1.12~install: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;E:\OneDrive\Code\Node\DiscordBot\node_modules\node-opus\node_modules\.bin;E:\OneDrive\Code\Node\DiscordBot\node_modules\.bin;C:\Program Files\nodejs;C:\Users\Aidan\AppData\Roaming\npm;C:\Program Files\nodejs\;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\QuickTime\QTSystem\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;%localappdata%\Microsoft\WindowsApps;E:\OneDrive\Downloads\ffmpeg-latest-win64-static\ffmpeg-20160422-git-268b5ae-win64-static\bin;C:\Program Files\nodejs\;C:\Python27;C:\Users\Aidan\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\Aidan\AppData\Local\Programs\Python\Python35-32\;C:\Users\Aidan\AppData\Roaming\npm;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;
+143 verbose lifecycle node-opus@0.1.12~install: CWD: E:\OneDrive\Code\Node\DiscordBot\node_modules\node-opus
+144 silly lifecycle node-opus@0.1.12~install: Args: [ '/d /s /c', 'node-gyp rebuild' ]
+145 silly lifecycle node-opus@0.1.12~install: Returned: code: 1  signal: null
+146 info lifecycle node-opus@0.1.12~install: Failed to exec install script
+147 verbose stack Error: node-opus@0.1.12 install: `node-gyp rebuild`
+147 verbose stack Exit status 1
+147 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:239:16)
+147 verbose stack     at emitTwo (events.js:100:13)
+147 verbose stack     at EventEmitter.emit (events.js:185:7)
+147 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:24:14)
+147 verbose stack     at emitTwo (events.js:100:13)
+147 verbose stack     at ChildProcess.emit (events.js:185:7)
+147 verbose stack     at maybeClose (internal/child_process.js:850:16)
+147 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+148 verbose pkgid node-opus@0.1.12
+149 verbose cwd E:\OneDrive\Code\Node\DiscordBot
+150 error Windows_NT 10.0.14352
+151 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "rebuild"
+152 error node v5.11.0
+153 error npm  v3.8.6
+154 error code ELIFECYCLE
+155 error node-opus@0.1.12 install: `node-gyp rebuild`
+155 error Exit status 1
+156 error Failed at the node-opus@0.1.12 install script 'node-gyp rebuild'.
+156 error Make sure you have the latest version of node.js and npm installed.
+156 error If you do, this is most likely a problem with the node-opus package,
+156 error not with npm itself.
+156 error Tell the author that this fails on your system:
+156 error     node-gyp rebuild
+156 error You can get information on how to open an issue for this project with:
+156 error     npm bugs node-opus
+156 error Or if that isn't available, you can get their info via:
+156 error     npm owner ls node-opus
+156 error There is likely additional logging output above.
+157 verbose exit [ 1, true ]

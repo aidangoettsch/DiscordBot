@@ -1,0 +1,76 @@
+{
+  "name": "youtube-dl",
+  "description": "youtube-dl driver for node",
+  "keywords": [
+    "youtube",
+    "video",
+    "download"
+  ],
+  "version": "1.11.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fent/node-youtube-dl.git"
+  },
+  "author": {
+    "name": "Roly Fentanes",
+    "url": "https://github.com/fent"
+  },
+  "contributors": [
+    {
+      "name": "Przemyslaw Pluta",
+      "email": "przemyslawplutadev@gmail.com",
+      "url": "http://przemyslawpluta.com"
+    }
+  ],
+  "main": "./lib/youtube-dl.js",
+  "directories": {
+    "lib": "./lib"
+  },
+  "scripts": {
+    "postinstall": "node ./scripts/download.js",
+    "update": "node ./scripts/download.js",
+    "test": "vows ./test/*.js --spec"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "request": "^2.69.0",
+    "streamify": "~0.2.3"
+  },
+  "devDependencies": {
+    "vows": "*"
+  },
+  "license": "MIT",
+  "gitHead": "22abe259ffaf49849276ae008ba5786c68c4763c",
+  "bugs": {
+    "url": "https://github.com/fent/node-youtube-dl/issues"
+  },
+  "homepage": "https://github.com/fent/node-youtube-dl",
+  "_id": "youtube-dl@1.11.1",
+  "_shasum": "c8e3b74951182dc5c58a0d1cd5be54b356271bd2",
+  "_from": "youtube-dl@latest",
+  "_npmVersion": "3.3.12",
+  "_nodeVersion": "5.1.1",
+  "_npmUser": {
+    "name": "przemyslawpluta",
+    "email": "przemyslawplutadev@gmail.com"
+  },
+  "dist": {
+    "shasum": "c8e3b74951182dc5c58a0d1cd5be54b356271bd2",
+    "tarball": "https://registry.npmjs.org/youtube-dl/-/youtube-dl-1.11.1.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "fent",
+      "email": "roly426@gmail.com"
+    },
+    {
+      "name": "przemyslawpluta",
+      "email": "przemyslawplutadev@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/youtube-dl-1.11.1.tgz_1459964316055_0.4385896357707679"
+  },
+  "_resolved": "https://registry.npmjs.org/youtube-dl/-/youtube-dl-1.11.1.tgz"
+}
