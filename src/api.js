@@ -1,361 +1,312 @@
 "use strict";
-var https = require('https');
+var https = require("https");
 var WebSocket = require('ws');
+var EventEmitter = require('events');
 var zlib = require("zlib");
-var udp = require('dgram');
-var util = require("util");
-var stream = require("stream");
-var events = require('events');
-var Opus = require('node-opus');
-var nacl = require('tweetnacl');
-var bunyan = require('bunyan');
-var cache = require("./cache.js");
-var heartbeat = 0;
-var voiceHeartbeat = 0;
-var voiceUDPServer;
-var s = 0;
-var audioSequence = 0;
-var timestamp = 0;
-var logId;
-var udpPort;
-var udpIP;
-var udpSsrc;
-var voiceHeartbeatInterval;
-var token = "";
-var gatewaySocket = {};
-var voiceSocket = {};
-var voiceUDPConnection = {};
-var guilds = {};
-var voiceData = [];
-var user = {};
-var logger = bunyan.createLogger({
-  name: "defaultLogger",
-  streams: [
-    {
-      stream: process.stdout,
-      level: "debug"
-    },
-    {
-      stream: process.stdout,
-      level: "info"
-    },
-    {
-      stream: process.stdout,
-      level: "error"
-    }
-  ]
-});
-var chat = {
-  sendMessage: sendMessage,
-  deleteMessage: deleteMessage,
-  registerCommand: registerCommand,
-  triggerTyping: triggerTyping
-};
-var voice = {
-  joinVoice: joinVoice,
-  moveVoice: moveVoice,
-  leaveVoice: leaveVoice,
-  findChannelOfUser: findChannelOfUser
-};
 
-class DiscordStream extends stream.Writable {
-  constructor(options) {
-    super(options);
-  }
+class User {
+  var id;
+  var username;
+  var discriminator;
+  var avatar;
+  var bot;
+  var mfa_enabled;
+  var verified;
+  var email;
 
-  _write(chunk, encoding, callback) {
+  constructor(id, username, discriminator, avatar, bot, mfa_enabled, verified, email) {
+    this.id = id;
+    this.username = username;
+    this.discriminator = discriminator;
+    this.avatar = avatar;
+    this.bot = bot;
+    this.mfa_enabled = mfa_enabled;
+    this.verified = verified;
+    this.email = email;
   }
 }
 
-function EventEmitter() {
-  events.call(this);
-}
-util.inherits(EventEmitter, events);
+class Guild {
+  var id;
+  var name;
+  var icon;
+  var splash;
+  var ownerId;
+  var region;
+  var afkChannelId;
+  var afkTimeout;
+  var embedEnabled;
+  var embedChannelId;
+  var verificationLevel;
+  var voiceStates;
+  var roles;
+  var emojis;
+  var features;
+  var unavailable;
+  var members;
+  var presences;
+  var channels;
 
-var eventEmitter = new EventEmitter();
-
-module.exports = {
-  connect: connect,
-  //getGateway: getGateway,
-  updateStatus: updateStatus,
-  sendGatewayPayload: sendGatewayPayload,
-  registerLogChannel: registerLogChannel,
-  chat: chat,
-  voice: voice,
-  events: eventEmitter
-};
-
-function connect(botToken) {
-  token = botToken;
-
-  gatewaySocket = new WebSocket("wss://gateway.discord.gg");
-
-  gatewaySocket.on('open', function () {
-    console.log("Connected to gateway");
-
-    sendGatewayPayload(2, {
-      token: token,
-      v: 4,
-      encoding: "json",
-      compress: true,
-      large_threshold: 250,
-      properties: {
-        "$os": "WontonBot",
-        "$browser": "WontonBot",
-        "$device": "WontonBot",
-        "$referrer": "WontonBot",
-        "$referring_domain": "WontonBot"
-      }
-    })
-  });
-
-  gatewaySocket.on('error', function (e) {
-    console.error("WS Error: " + e);
-    //gatewaySocket = new WebSocket(getGateway(false));
-  });
-
-  gatewaySocket.on('message', function (data) {
-    processPayload(data)
-  });
-}
-
-function getGateway(failed) {
-  var cacheValue = cache.cache;
-  console.log(cacheValue);
-  console.log(!failed && cacheValue.gateway !== undefined);
-  if (!failed && cacheValue.gateway !== undefined) {
-  } else {
-    console.log("Gateway cache invalid");
-    var gatewayUrl = "";
-
-    var gatewayGetReq = https.request({
-      hostname: "discordapp.com",
-      path: "/api/gateway"
-    }, function (res) {
-      console.log('statusCode: ', res.statusCode);
-
-      res.on('data', function (d) {
-        gatewayUrl = JSON.parse(d.toString("utf8")).url;
-
-        console.log("Got new gateway URL: " + gatewayUrl);
-      });
-    });
-
-    gatewayGetReq.end();
+  constructor(id, name, icon, splash, ownerId, region, afkChannelId, afkTimeout, embedEnabled, embedChannelId, verificationLevel, voiceStates, roles, emojis, features, unavailable, members, presences, channels) {
+    this.id = id;
+    this.name = name;
+    this.icon = icon;
+    this.splash = splash;
+    this.ownerId = ownerId;
+    this.region = region;
+    this.afkChannelId = afkChannelId;
+    this.afkTimeout = afkTimeout;
+    this.embedEnabled = embedEnabled;
+    this.embedChannelId = embedChannelId;
+    this.verificationLevel = verificationLevel;
+    this.voiceStates = voiceStates;
+    this.roles = roles;
+    this.emojis = emojis;
+    this.features = features;
+    this.unavailable = unavailable;
+    this.members = members;
+    this.presences = presences;
+    this.channels = channels;
   }
 }
 
-function sendGatewayPayload(op, data) {
-  gatewaySocket.send(JSON.stringify({
-    op: op,
-    d: data
-  }));
-}
+class GuildChannel {
+  var id;
+  var guildId;
+  var name;
+  var type;
+  var position;
+  var isPrivate;
+  var permissionOverwrites;
+  var topic;
+  var lastMessageId;
+  var bitrate;
+  var userLimit;
 
-function sendHTTPRequest(path, method, data, cb) {
-  var req = https.request({
-    hostname: "discordapp.com",
-    path: "/api" + path,
-    method: method,
-    headers: {
-      'Authorization': token,
-      'Content-Type': 'application/json',
-      'User-Agent': 'DiscordBot (y23k.net, 0.1.0)'
-    }
-  }, function (res) {
-    res.on('data', function (d) {
-      try {
-        d = JSON.parse(d.toString("utf8"));
-
-        if (typeof cb !== 'undefined') cb(d);
-      } catch (e) {
-        console.log("Error parsing response: " + e)
-      }
-    });
-
-    res.on('error', function (e) {
-      console.error("Error sending HTTP payload: " + e)
-    })
-  });
-  if (typeof data !== 'undefined') req.write(JSON.stringify(data));
-  req.end();
-}
-
-function processPayload(data) {
-  if (data instanceof Buffer) {
-    try {
-      data = zlib.inflateSync(data).toString();
-    } catch (e) {
-      console.error("Data Parse Error: " + e)
+  constructor(id, guildId, name, type, position, isPrivate, permissionOverwrites, channelSpecific1, channelSpecific2) {
+    this.id = id;
+    this.guildId = guildId;
+    this.name = name;
+    this.type = type;
+    this.position = position;
+    this.isPrivate = isPrivate;
+    this.permissionOverwrites = permissionOverwrites;
+    if (type == "text") {
+      this.topic = channelSpecific1;
+      this.lastMessageId = channelSpecific2;
+    } else {
+      this.bitrate = channelSpecific1;
+      this.userLimit = channelSpecific2;
     }
   }
-
-  data = JSON.parse(data);
-  eventEmitter.emit('payload', data);
-
-  s = data.s;
-
-  if (data.op == 0) eventEmitter.emit('event', data.t, data.d, data)
 }
 
-eventEmitter.on('event', function (t, d, rawData) {
-  switch (t) {
-    case "READY":
-      eventEmitter.emit('ready', d, rawData);
-      break;
-    case "GUILD_CREATE":
-      eventEmitter.emit('guildCreate', d, rawData);
-      break;
-    case "MESSAGE_CREATE":
-      eventEmitter.emit('messageCreate', d, rawData);
-      break;
-    case "TYPING_START":
-      eventEmitter.emit('typingStart', d, rawData);
-      break;
-    case "PRESENCE_UPDATE":
-      eventEmitter.emit('presenceUpdate', d, rawData);
-      break;
-    case "VOICE_STATE_UPDATE":
-      eventEmitter.emit('voiceStateUpdate', d, rawData);
-      break;
-    case "VOICE_SERVER_UPDATE":
-      eventEmitter.emit('voiceServerUpdate', d, rawData);
-      break;
-    default:
-      console.error("Unknown event: " + t)
+class DMChannel {
+  var id;
+  var isPrivate;
+  var recipient;
+  var lastMessageId;
+
+  constructor(id, isPrivate, recipient, lastMessageId) {
+    this.id = id;
+    this.isPrivate = isPrivate;
+    this.recipient = recipient;
+    this.lastMessageId = lastMessageId;
   }
-});
-
-eventEmitter.on('ready', function (d) {
-  heartbeat = d.heartbeat_interval;
-  user = d.user;
-  guilds = d.guilds;
-  setInterval(function () {
-    try {
-      sendGatewayPayload(1, s)
-    } catch (e) {
-      console.error("Error sending heartbeat: " + e);
-    }
-  }, heartbeat);
-});
-
-function updateStatus(idle, game) {
-  sendGatewayPayload(3, {
-    idle_since: idle,
-    game: {
-      name: game
-    }
-  });
 }
 
-//GUILDS
-eventEmitter.on('guildCreate', function (d) {
-  voiceData = d.voice_states;
-});
+class Message {
+  var id;
+  var channelId;
+  var author;
+  var content;
+  var timestamp;
+  var editedTimestamp;
+  var tts;
+  var mentionEveryone;
+  var mentions;
+  var mentionRoles;
+  var attachments;
+  var embeds;
 
-//CHAT
-function sendMessage(content, channel) {
-  sendHTTPRequest("/channels/" + channel + "/messages", "POST", {
-    content: content
-  });
+  constructor(id, channelId, author, content, timestamp, editedTimestamp, tts, mentionEveryone, mentions, mentionRoles, attachments, embeds) {
+    this.id = id;
+    this.channelId = channelId;
+    this.author = author;
+    this.content = content;
+    this.timestamp = timestamp;
+    this.editedTimestamp = editedTimestamp;
+    this.tts = tts;
+    this.mentionEveryone = mentionEveryone;
+    this.mentions = mentions;
+    this.mentionRoles = mentionRoles;
+    this.attachments = attachments;
+    this.embeds = embeds;
+  }
 }
 
-function deleteMessage(id, channel) {
-  sendHTTPRequest("/channels/" + channel + "/messages/" + id, "DELETE");
+class VoiceState {
+  var channelId;
+  var userId;
+  var sessionId;
+  var deaf;
+  var mute;
+  var selfDeaf;
+  var selfMute;
+  var suppress;
+
+  constructor(channelId, userId, sessionId, deaf, mute, selfDeaf, selfMute, suppress) {
+    this.channelId = channelId;
+    this.userId = userId;
+    this.sessionId = sessionId;
+    this.deaf = deaf;
+    this.mute = mute;
+    this.selfDeaf = selfDeaf;
+    this.selfMute = selfMute;
+    this.suppress = suppress;
+  }
 }
 
-function triggerTyping(channel) {
-  sendHTTPRequest("/channels/" + channel + "/typing", "POST");
+class Role {
+  var position;
+  var permissions;
+  var name;
+  var mentionable;
+  var managed;
+  var id;
+  var hoist;
+  var color;
+
+  constructor(position, permissions, name, mentionable, managed, id, hoist, color) {
+    this.position = position;
+    this.permissions = permissions;
+    this.name = name;
+    this.mentionable = mentionable;
+    this.managed = managed;
+    this.id = id;
+    this.hoist = hoist;
+    this.color = color;
+  }
 }
 
-function registerCommand(command, response) {
-  eventEmitter.on('messageCreate', function (d) {
-    var msg = d.content;
-    var args = msg.split(" ");
+class BotInstance extends EventEmitter {
+  var token;
+  var gatewaySocket;
+  var s;
+  var user;
+  var guilds;
+  var dmChannels;
 
-    if (args[0] == command) {
-      if (typeof response === 'function') {
-        args.splice(0, 1);
+  constructor(token, name) {
+    this.token = token;
 
-        var rawArgs = "";
+    this.gatewaySocket = new WebSocket("wss://gateway.discord.gg");
 
-        for (var arg in args) {
-          arg = args[arg];
+    this.gatewaySocket.on('open', function () {
+      console.log("Connected to gateway");
 
-          rawArgs = rawArgs + " " + arg
+      this.sendGatewayPayload(2, {
+        token: token,
+        v: 5,
+        encoding: "json",
+        compress: true,
+        large_threshold: 250,
+        properties: {
+          "$os": name,
+          "$browser": name,
+          "$device": name,
+          "$referrer": name,
+          "$referring_domain": name
         }
+      })
+    });
 
-        rawArgs = rawArgs.slice(1, msg.length);
+    this.gatewaySocket.on('error', function (e) {
+      console.error("WS Error: " + e);
+    });
 
-        response(args, d.channel_id, rawArgs, d);
-      } else {
-        sendMessage(response, d.channel_id);
-      }
-    }
-  });
-}
+    this.gatewaySocket.on('message', function (data) {
+      this.processPayload(data)
+    });
 
-//VOICE
-eventEmitter.on('voiceStateUpdate', function (d) {
-  if (d.user_id !== user.id) {
-    var userPosition = voiceData.indexOf(voiceData.filter(function (obj) {
-      return obj.user_id = d.user_id
-    })[0]);
-
-    voiceData[userPosition] = d;
+    this.setupListeners();
   }
-});
 
-function sendVoicePayload(op, data) {
-  voiceSocket.send(JSON.stringify({
-    op: op,
-    d: data
-  }));
-}
+  private convertUser(rawUser) {
+    return new User(rawUser.id, rawUser.username, rawUser.discriminator, rawUser.avatar, rawUser.bot, rawUser.mfa_enabled)
+  }
 
-function joinVoice(guild, channel) {
-  var voiceConnectionPayload = {};
-  var voiceServer;
+  private static convertGuild(rawGuild) {
+    if (rawGuild.channels == null) for (var channel in rawGuild.channels) rawGuild.channels[channel] = BotInstance.convertGuildChannel(rawGuild.channels[channel]);
+    if (rawGuild.members == null) for (var member in rawGuild.members) rawGuild.members[member] = this.convertUser(rawGuild.members[member]);
 
-  console.log("Joining voice");
+    for (var voiceState in rawGuild.voice_states) rawGuild.voice_states[voiceState] = this.convertVoiceState(rawGuild.voice_states[voiceState]);
 
-  sendGatewayPayload(4, {
-    guild_id: guild,
-    channel_id: channel,
-    self_mute: false,
-    self_deaf: false
-  });
+    return new Guild(rawGuild.id, rawGuild.name, rawGuild.icon, rawGuild.splash, rawGuild.owner_id, rawGuild.region,
+      rawGuild.afk_channel_id, rawGuild.afk_timeout, rawGuild.embed_enabled, rawGuild.embed_channel_id, rawGuild.verification_level, rawGuild.voice_states, rawGuild.roles, rawGuild.emojis, rawGuild.features, rawGuild.available);
+  }
 
-  eventEmitter.once('voiceStateUpdate', function (d) {
-    if (d.user_id === user.id && d.channel_id !== null) voiceConnectionPayload.session_id = d.session_id.toString();
-  });
+  private static convertUnknownChannel(rawChannel) {
+    if (rawChannel.is_private) return BotInstance.convertDMChannel(rawChannel);
+    else return BotInstance.convertGuildChannel(rawChannel);
+  }
 
-  eventEmitter.once('voiceServerUpdate', function (d) {
-    voiceConnectionPayload.token = d.token.toString();
-    voiceConnectionPayload.server_id = d.guild_id.toString();
+  private static convertDMChannel(rawChannel) {
+    return new DMChannel(rawChannel.id, rawChannel.is_private, rawChannel.recipient, rawChannel.last_message_id);
+  }
 
-    voiceUDPServer = d.endpoint.split(":")[0];
-    voiceServer = "wss://" + voiceUDPServer;
+  private static convertGuildChannel(rawChannel) {
+    if (rawChannel.type == "text") return new GuildChannel(rawChannel.id, rawChannel.guild_id, rawChannel.name, rawChannel.type, rawChannel.position, rawChannel.is_private, rawChannel.permession_overwrites, rawChannel.topic, rawChannel.last_message_id);
+    else return new GuildChannel(rawChannel.id, rawChannel.guild_id, rawChannel.name, rawChannel.type, rawChannel.position, rawChannel.is_private, rawChannel.permession_overwrites, rawChannel.bitrate, rawChannel.user_limit);
+  }
 
-    if (voiceConnectionPayload.session !== null) connectToVoice(voiceServer, voiceConnectionPayload);
-  });
-}
+  private static convertMessage(rawMessage) {
+    return new Message(rawMessage.id, rawMessage.channel_id, rawMessage.author, rawMessage.content, rawMessage.timestamp, rawMessage.edited_timestamp, rawMessage.tts, rawMessage.mention_everyone, rawMessage.mentions, rawMessage.mention_roles, rawMessage.attachments, rawMessage.embeds)
+  }
 
-function connectToVoice(server, payload) {
-  voiceSocket = new WebSocket(server);
+  private static convertVoiceState(rawVoiceState) {
+    return new VoiceState(rawVoiceState.channel_id, rawVoiceState.user_id, rawVoiceState.session_id, rawVoiceState.deaf, rawVoiceState.mute, rawVoiceState.self_deaf , rawVoiceState.self_mute, rawVoiceState.suppress)
+  }
 
-  voiceSocket.on('open', function () {
-    console.log("Connected to voice server: " + server);
+  private static convertRole(rawRole) {}
 
-    payload.user_id = user.id.toString();
-    sendVoicePayload(0, payload);
-  });
+  private sendHTTPPayload(path, method, data, cb) {
+    var req = https.request({
+      hostname: "discordapp.com",
+      path: "/api" + path,
+      method: method,
+      headers: {
+        'Authorization': thisr.token,
+        'Content-Type': 'application/json',
+        'User-Agent': 'DiscordBot (y23k.net, 0.1.0)'
+      }
+    }, function (res) {
+      res.on('data', function (d) {
+        try {
+          d = JSON.parse(d.toString("utf8"));
 
-  voiceSocket.on('error', function (e) {
-    console.error("WS Error: " + e);
-  });
+          if (typeof cb !== 'undefined') cb(d);
+        } catch (e) {
+          console.log("Error parsing response: " + e)
+        }
+      });
 
-  voiceSocket.on('message', function (data) {
+      res.on('error', function (e) {
+        console.error("Error sending HTTP payload: " + e)
+      })
+    });
+    if (typeof data !== 'undefined') req.write(JSON.stringify(data));
+    req.end();
+  }
+
+  private sendGatewayPayload(op, data) {
+    this.gatewaySocket.send(JSON.stringify({
+      op: op,
+      d: data
+   }));
+  }
+
+  private processPayload(data) {
     if (data instanceof Buffer) {
       try {
         data = zlib.inflateSync(data).toString();
@@ -365,182 +316,196 @@ function connectToVoice(server, payload) {
     }
 
     data = JSON.parse(data);
-    eventEmitter.emit('payload', data);
+    super.emit('payload', data);
 
-    switch (data.op) {
-      case 2:
-        eventEmitter.emit('voiceReady', data.d, data);
+    this.s = data.s;
+
+    if (data.op == 0) super.emit('event', data.t, data.d, data);
+
+    switch (data.t) {
+      case "READY":
+        super.emit('ready', data.d, data);
         break;
-      case 4:
-        eventEmitter.emit('voiceSessionDescription', data.d, data);
+      case "RESUMED":
+        super.emit('resume', data.d, data);
         break;
-      case 5:
-        eventEmitter.emit('voiceSpeaking', data.d, data);
+      case "GUILD_CREATE":
+        super.emit('guildCreate', data.d, data);
         break;
+      case "GUILD_UPDATE":
+        super.emit('guildUpdate', data.d, data);
+        break;
+      case "GUILD_DELETE":
+        super.emit('guildDelete', data.d, data);
+        break;
+      case "CHANNEL_CREATE":
+        super.emit('channelCreate', data.d, data);
+        break;
+      case "CHANNEL_UPDATE":
+        super.emit('channelUpdate', data.d, data);
+        break;
+      case "CHANNEL_DELETE":
+        super.emit('channelDelete', data.d, data);
+        break;
+      case "MESSAGE_CREATE":
+        super.emit('messageCreate', data.d, data);
+        break;
+      case "MESSAGE_UPDATE":
+        super.emit('messageUpdate', data.d, data);
+        break;
+      case "MESSAGE_DELETE":
+        super.emit('messageDelete', data.d, data);
+        break;
+      case "MESSAGE_DELETE_BULK":
+        super.emit('messageDeleteBulk', data.d, data);
+        break;
+      case "GUILD_BAN_ADD":
+        super.emit('guildBanAdd', data.d, data);
+        break;
+      case "GUILD_BAN_REMOVE":
+        super.emit('guildBanRemove', data.d, data);
+        break;
+      case "GUILD_EMOJI_UPDATE":
+        super.emit('guildEmojiUpdate', data.d, data);
+        break;
+      case "GUILD_INTEGRATIONS_UPDATE":
+        super.emit('guildIntegrationUpdate', data.d, data);
+        break;
+      case "GUILD_MEMBER_ADD":
+        super.emit('guildMemberAdd', data.d, data);
+        break;
+      case "GUILD_MEMBER_UPDATE":
+        super.emit('guildMemberUpdate', data.d, data);
+        break;
+      case "GUILD_MEMBER_REMOVE":
+        super.emit('guildMemberRemove', data.d, data);
+        break;
+      case "GUILD_MEMBERS_CHUNK":
+        super.emit('guildMembersChunk', data.d, data);
+        break;
+      case "GUILD_ROLE_CREATE":
+        super.emit('guildRoleCreate', data.d, data);
+        break;
+      case "GUILD_ROLE_UPDATE":
+        super.emit('guildRoleUpdate', data.d, data);
+        break;
+      case "GUILD_ROLE_DELETE":
+        super.emit('guildRoleDelete', data.d, data);
+        break;
+      case "PRESENCE_UPDATE":
+        super.emit('presenceUpdate', data.d, data);
+        break;
+      case "TYPING_START":
+        super.emit('typingStart', data.d, data);
+        break;
+      case "USER_SETTINGS_UPDATE":
+        super.emit('userSettingUpdate', data.d, data);
+        break;
+      case "USER_UPDATE":
+        super.emit('userUpdate', data.d, data);
+        break;
+      case "VOICE_STATE_UPDATE":
+        super.emit('voiceStateUpdate', data.d, data);
+        break;
+      case "VOICE_SERVER_UPDATE":
+        super.emit('voiceServerUpdate', data.d, data);
+        break;
+      default:
+        console.error("Unknown event: " + data.t)
     }
-  });
-}
+  }
 
-eventEmitter.on('voiceReady', function (d) {
-  voiceHeartbeat = d.heartbeat_interval;
-
-  voiceHeartbeatInterval = setInterval(function () {
-    try {
-      sendVoicePayload(3, null);
-    } catch (e) {
-      console.error("Error sending heartbeat: " + e);
-    }
-  }, voiceHeartbeat);
-
-  connectToUDP(voiceUDPServer, d.port, d.ssrc, d);
-});
-
-function connectToUDP(server, port, ssrc, d) {
-  var discoveredIP = "";
-  var discoveredPort;
-
-  voiceUDPConnection = udp.createSocket("udp4");
-  voiceUDPConnection.bind({exclusive: true});
-  voiceUDPConnection.once('message', function (msg, rinfo) {
-    var buffArr = JSON.parse(JSON.stringify(msg)).data;
-    for (var i = 4; i < buffArr.indexOf(0, i); i++) {
-      discoveredIP += String.fromCharCode(buffArr[i]);
-    }
-    discoveredPort = msg.readUIntLE(msg.length - 2, 2).toString(10);
-
-    sendVoicePayload(1, {
-      "protocol": "udp",
-      "data": {
-        "address": discoveredIP,
-        "port": Number(discoveredPort),
-        "mode": d.modes[1] //'xsalsa20_poly1305'
+  private setupListeners() {
+    this.on("ready", function (d) {
+      this.user = this.convertUser(d.user);
+      for (var guild in d.guilds) this.guilds[guild] = this.convertGuild(d.guilds[guild]);
+      for (var dmChannel in d.private_channels) this.dmChannels[dmChannel] = BotInstance.convertDMChannel(d.private_channels[dmChannel]);
+    });
+    this.on("guildCreate", function (d) {
+      d = this.convertGuild(d);
+      var guild = this.guilds.filter(function (guild) {
+        return guild.guildId == d.guild_id;
+      });
+      if (guild.length == 0) this.guilds[length] = d;
+      else this.guilds[this.guilds.indexOf(g[0])] = d;
+    });
+    this.on("guildUpdate", function (d) {
+      d = this.convertGuild(d);
+      var guild = this.guilds.filter(function (guild) {
+        return guild.guildId == d.guild_id;
+      });
+      this.guilds[this.guilds.indexOf(guild[0])] = d;
+    });
+    this.on("guildDelete", function (d) {
+      d = this.convertGuild(d);
+      var g = this.guilds.filter(function (guild) {
+        return guild.guildId == d.guild_id;
+      });
+      this.guilds.splice(this.guilds.indexOf(g[0]), 1);
+    });
+    this.on("channelCreate", function (d) {
+      d = BotInstance.convertUnknownChannel(d);
+      if (d.isPrivate) {
+        this.dmChannels[this.dmChannels.length] = d;
+      } else {
+        var guild = this.guilds.filter(function (guild) {
+          return guild.guildId == d.guildId;
+        });
+        var guildIndex = this.guilds.indexOf(guild);
+        guild[guildIndex].channels[guild[guildIndex].channels.length] = d;
       }
     });
-  });
-
-  var identifyPacket = new Buffer(70);
-  identifyPacket.writeUIntBE(ssrc, 0, 4);
-  voiceUDPConnection.send(identifyPacket, 0, identifyPacket.length, port, server, function (err) {
-    if (err) console.log(err);
-  });
-
-  udpIP = server;
-  udpPort = port;
-  udpSsrc = ssrc;
-}
-
-eventEmitter.on('voiceSessionDescription', function (d) {
-  var secretKey = d.secret_key;
-  var startTime;
-  var opusEncoder = new Opus.OpusEncoder(48000, 2);
-
-  var VoicePacket = (function () {
-    var header = new Buffer(12),
-      nonce = new Buffer(24),
-      output = new Buffer(2048);
-
-    header[0] = 0x80;
-    header[1] = 0x78;
-    header.writeUIntBE(udpSsrc, 8, 4);
-
-    nonce.fill(0);
-
-    return function (packet, sequence, timestamp, key) {
-      header.writeUIntBE(sequence, 2, 2);
-      header.writeUIntBE(timestamp, 4, 4);
-      //<Buffer 80 78 00 01 00 00 03 c0 00 00 00 01>
-      header.copy(nonce);
-      //<Buffer 80 78 00 01 00 00 03 c0 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00>
-
-      var encrypted = new Buffer(
-        nacl.secretbox(
-          new Uint8Array(packet),
-          new Uint8Array(nonce),
-          new Uint8Array(key)
-        )
-      );
-
-      header.copy(output);
-      encrypted.copy(output, 12);
-
-      return output.slice(0, header.length + encrypted.length);
-    };
-  })();
-
-  function sendAudio(stream) {
-    sendVoicePayload(5, {
-      speaking: true,
-      delay: 0
+    this.on("channelUpdate", function (d) {
+      var channel;
+      d = BotInstance.convertUnknownChannel(d);
+      if (d.isPrivate) {
+        channel = this.dmChannels.filter(function (channel) {
+          return channel.id == d.id;
+        });
+        this.dmChannels[this.dmChannels.indexOf(channel[0])] = d;
+      } else {
+        var guild = this.guilds.filter(function (guild) {
+          return guild.guildId == d.guild_id;
+        });
+        channel = guild[0].channels.filter(function (channel) {
+          return channel.id == d.id;
+        });
+        this.guilds[this.guilds.indexOf(guild[0])].channels[this.guilds[this.guilds.indexOf(guild[0])].channels.indexOf(channel[0])] = d;
+      }
     });
-
-    startTime = new Date().getTime();
-    sendPacket(stream, 1);
-  }
-
-  function sendPacket(stream, cnt) {
-    var buff, encoded, audioPacket, nextTime;
-
-    buff = stream.read(3840);
-    if (stream.destroyed) return;
-
-    audioSequence = audioSequence < 0xFFFF ? audioSequence + 1 : 0;
-    timestamp = timestamp < 0xFFFFFFFF ? timestamp + 960 : 0;
-
-    encoded = [0xF8, 0xFF, 0xFE];
-    if (buff && buff.length === 3840) encoded = opusEncoder.encode(buff);
-
-    audioPacket = VoicePacket(encoded, audioSequence, timestamp, secretKey);
-    nextTime = startTime + cnt * 20;
-
-    try {
-      //It throws a synchronous error if it fails (someone leaves the audio channel while playing audio)
-      voiceUDPConnection.send(audioPacket, 0, audioPacket.length, udpPort, udpIP, function (err) {
-        if (err) {
-          console.log(err);
-        }
+    this.on("channelDelete", function (d) {
+      var channel;
+      d = BotInstance.convertUnknownChannel(d);
+      if (d.isPrivate) {
+        channel = this.dmChannels.filter(function (channel) {
+          return channel.id == d.id;
+        });
+        this.dmChannels.splice(this.dmChannels.indexOf(channel[0]), 1);
+      } else {
+        var guild = this.guilds.filter(function (guild) {
+          return guild.guildId == d.guild_id;
+        });
+        channel = guild[0].channels.filter(function (channel) {
+          return channel.id == d.id;
+        });
+        this.guilds[this.guilds.indexOf(guild[0])].channels.splice(this.guilds[this.guilds.indexOf(guild[0])].channels.indexOf(channel), 1);
+      }
+    });
+    this.on("messageCreate", function (d) {
+      var channel;
+      d = this.convertMessage(d);
+      var guild = this.guilds.filter(function (guild) {
+        return guild.guildId == d.guild_id;
       });
-    } catch (e) {
-      return;
-    }
-    return setTimeout(function () {
-      return sendPacket(stream, cnt + 1);
-    }, 20 + (nextTime - new Date().getTime()));
+      var channel = guild.channels.filter(function (channel) {
+        return channel.id == d.channel_id;
+      });
+      if (channel.length == 0) {
+        var channel = this.dmChannels.filter(function (channel) {
+          return channel.id == d.channel_id;
+        });
+      }
+      channel.lastMessageId = d.id;
+    });
   }
-
-  console.log("Ready to send voice");
-
-  eventEmitter.emit('voiceTransmissionReady', sendAudio);
-});
-
-function moveVoice(guild, channel) {
-  sendGatewayPayload(4, {
-    guild_id: guild,
-    channel_id: channel,
-    self_mute: false,
-    self_deaf: false
-  });
-}
-
-function leaveVoice(guild) {
-  sendGatewayPayload(4, {
-    guild_id: guild,
-    channel_id: null,
-    self_mute: false,
-    self_deaf: false
-  });
-
-  clearInterval(voiceHeartbeatInterval);
-  voiceSocket.close();
-}
-
-function findChannelOfUser(userId) {
-  for (var user in voiceData) {
-    user = voiceData[user];
-
-    if (user.user_id == userId) return user.channel_id;
-  }
-}
-
-function registerLogChannel(id) {
-  logId = id;
 }
